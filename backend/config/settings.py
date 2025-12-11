@@ -1,4 +1,6 @@
 from pathlib import Path
+
+import rest_framework.authentication
 from dotenv import load_dotenv
 import os
 
@@ -29,7 +31,16 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "todo",
+    "rest_framework.authtoken",
+    "users",
 ]
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+}
 
 # CORS_ALLOWED_ORIGINS = [
 #     "https://localhost:5173",
