@@ -17,7 +17,7 @@ else:
     raise ValueError("Некорректное значение переменной DEBUG")
 
 
-ALLOWED_HOSTS = ["http://127.0.0.1", "http://localhost:5173/"]
+ALLOWED_HOSTS = ["http://127.0.0.1", "http://localhost:5173/", "127.0.0.1"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
+    "todo",
 ]
 
 # CORS_ALLOWED_ORIGINS = [
