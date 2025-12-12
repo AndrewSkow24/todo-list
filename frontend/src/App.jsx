@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { Routes, Route, Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AddTask from "./components/AddTask";
+import TotoList from "./components/TotoList";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import { Nav, Navbar } from "react-bootstrap";
+import Container from "react-bootstrap/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0)
+  let user = "True";
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <Navbar bg="primary" variant="dark">
+        <div className="container-fluid">
+          <Navbar.Brand>Список задач</Navbar.Brand>
+          <Nav className="me-auto">
+            <Container>
+              <Link className="nav-link" to="/tasks">
+                Список задач
+              </Link>
+              {user ? (
+                <Link className="nav-link">Выйти ({user})</Link>
+              ) : (
+                <>
+                  <Link className="nav-link" to={"/login"}>
+                    Войти
+                  </Link>
+                  <Link className="nav-link" to={"/signup"}>
+                    Регистрация
+                  </Link>
+                </>
+              )}
+            </Container>
+          </Nav>
+        </div>
+      </Navbar>
+    </div>
+  );
 }
 
-export default App
+export default App;
